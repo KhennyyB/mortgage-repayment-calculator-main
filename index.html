@@ -19,19 +19,9 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/solid.css">
+    <!-- <script src="index.js" defer></script> -->
     <script src="index-me.js" defer></script>
     <title>Frontend Mentor | Mortgage repayment calculator</title>
-    <style>
-      .error-message {
-        color: red;
-        font-size: 0.875em;
-        margin-top: 5px;
-        display: none;
-      }
-      .input-container.error {
-        border: 1px solid red;
-      }
-    </style>
   </head>
   <body>
     <main>
@@ -54,25 +44,24 @@
 
         <div class="term-interest">
           <!-- Mortgage term -->
-          <div class="form-group">
-            <label for="mortgage-term">Mortgage Term</label>
-            <div class="input-container">
-              <input type="text" id="mortgage-term" value="25" />
-              <span class="years">years</span>
-            </div>
-            <span class="error-message" id="mortgage-term-error">Please enter a valid mortgage term.</span>
+        <div class="form-group">
+          <label for="mortgage-term">Mortgage Term</label>
+          <div class="input-container">          
+            <input type="text" id="mortgage-term" value="25" />
+            <span class="years">years</span>
           </div>
+          <span class="error-message" id="mortgage-term-error">Please enter a valid mortgage term.</span>
+        </div>
   
           <!-- Interest Rate -->
           <div class="form-group">
             <label for="interest-rate">Interest Rate</label>
-            <div class="input-container">
-              <input type="text" id="interest-rate" value="5.25" step="0.01" />
+            <div class="input-container">          
+              <input type="text" id="interest-rate" value="5.25" step="0.01"/>
               <span class="interest">%</span>
             </div>
             <span class="error-message" id="interest-rate-error">Please enter a valid interest rate.</span>
           </div>
-        </div>
 
         
 
@@ -167,60 +156,5 @@
       <a href="https://www.frontendmentor.io?ref=challenge">Frontend Mentor</a>.
       Coded by <a href="#">Martins Akinnuwesi</a>.
     </div>
-
-     <script>
-      function validateForm() {
-        let isValid = true;
-
-        // Validate Mortgage Amount
-        const mortgageAmount = document.getElementById("mortgage-amount").value.replace(/,/g, '');
-        const mortgageAmountError = document.getElementById("mortgage-amount-error");
-        if (!mortgageAmount || isNaN(mortgageAmount) || mortgageAmount <= 0) {
-          mortgageAmountError.style.display = "block";
-          isValid = false;
-        } else {
-          mortgageAmountError.style.display = "none";
-        }
-
-        // Validate Mortgage Term
-        const mortgageTerm = document.getElementById("mortgage-term").value;
-        const mortgageTermError = document.getElementById("mortgage-term-error");
-        if (!mortgageTerm || isNaN(mortgageTerm) || mortgageTerm <= 0) {
-          mortgageTermError.style.display = "block";
-          isValid = false;
-        } else {
-          mortgageTermError.style.display = "none";
-        }
-
-        // Validate Interest Rate
-        const interestRate = document.getElementById("interest-rate").value;
-        const interestRateError = document.getElementById("interest-rate-error");
-        if (!interestRate || isNaN(interestRate) || interestRate <= 0) {
-          interestRateError.style.display = "block";
-          isValid = false;
-        } else {
-          interestRateError.style.display = "none";
-        }
-
-        // If all fields are valid, proceed with calculation
-        if (isValid) {
-          calculateMortgage();
-        }
-      }
-
-      function calculateMortgage() {
-        // Your existing calculation logic here
-        console.log("Calculating mortgage...");
-      }
-
-      function clearForm() {
-        document.getElementById("mortgage-amount").value = "";
-        document.getElementById("mortgage-term").value = "";
-        document.getElementById("interest-rate").value = "";
-        document.getElementById("repayment").checked = true;
-        document.getElementById("total-amount").innerText = "£0.00";
-        document.getElementById("balance").innerText = "£0.00";
-      }
-    </script>
   </body>
 </html>
