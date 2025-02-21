@@ -178,58 +178,6 @@ input:active {
 }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* input[type="radio"] {
-  accent-color: red; 
-  width: 30%;  
-}
-
-
-.radio-button:hover {
-  background-color: #fafae1;
-}
-
-#radio-option {
-  display: grid;
-  grid-template-columns: 10% 90%;
-  padding: 1rem 1rem;
-  border: 1px solid ; 
-  background-color: white;
-  margin-bottom: 0.5rem;
-  font-weight: bold;
-}
-
-#repayment:checked + #radio-option1 {
-  border: 1px solid #d9dc30 ; 
-  background-color: #fafae1;
-}
-
-
-input[type="radio"] {
-  accent-color: #d9dc30;   
-} */
-
-/* Calculate Button */
-
 #calculate-btn {
   display: flex;
   gap: 1rem;
