@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./assets/images/favicon-32x32.png"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&family=Public+Sans:ital,wght@0,100..900;1,100..900&family=Raleway:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&family=Yellowtail&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/solid.css">
+    <!-- <script src="index.js" defer></script> -->
+    <script src="index-me.js" defer></script>
+    <title>Frontend Mentor | Mortgage repayment calculator</title>
+  </head>
+  <body>
+    <main>
+      <div class="input-section">
+        <!-- Head -->
+        <div class="input-section-head">
+          <h1>Mortgage Calculator</h1>
+          <button class="clear-btn" onclick="clearForm()">Clear All</button>
+        </div>
+
+        <!-- Mortgage Amount -->
+        <div class="form-group">
+          <label for="mortgage-amount">Mortgage Amount</label>
+          <div class="input-container">
+            <span class="currency-symbol">£</span>
+            <input type="text" id="mortgage-amount" value="300,000" />
+          </div>
+        </div>
+
+        <div class="term-interest">
+          <!-- Mortgage term -->
+        <div class="form-group">
+          <label for="mortgage-term">Mortgage Term</label>
+          <div class="input-container">          
+            <input type="text" id="mortgage-term" value="25" />
+            <span class="years">years</span>
+          </div>
+          </div>
+  
+          <!-- Interest Rate -->
+          <div class="form-group">
+            <label for="interest-rate">Interest Rate</label>
+            <div class="input-container">          
+              <input type="text" id="interest-rate" value="5.25" step="0.01"/>
+              <span class="interest">%</span>
+            </div>
+            </div>
+
+        </div>
+
+        <!-- Mortgage Type -->
+        <div class="form-group">
+          <label>Mortgage Type</label>
+          <div class="radio-group">           
+            <label class="radio-label">
+              <input 
+                type="radio" 
+                name="toggle" 
+                value="repayment" 
+                class="radio-input" 
+                id="repayment"
+                checked
+              >
+              <div class="radio-button">
+                <div class="radio-circle"></div>
+                Repayment
+              </div>
+            </label>
+        
+            <label class="radio-label">
+              <input 
+                type="radio" 
+                name="toggle" 
+                value="interestOnly" 
+                class="radio-input"
+                id="interestOnly"
+              >
+              <div class="radio-button">
+                <div class="radio-circle"></div>
+                Interest Only
+              </div>
+            </label>
+            
+          </div>
+        </div>
+
+        <!-- Calculate button -->
+        <button id="calculate-btn" onclick="calculateMortgage()"><svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" id="calculator" width="32" height="32" x="0" y="0" fill="#000" version="1.1" viewBox="0 0 32 32">
+          <path d="M6 32h20a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v28a2 2 0 0 0 2 2zm16-10a2 2 0 1 1 .001-4.001A2 2 0 0 1 22 22zm2 4a2 2 0 1 1-4.001-.001A2 2 0 0 1 24 26zm-2-10a2 2 0 1 1 .001-4.001A2 2 0 0 1 22 16zM8 8V4h16v4H8zm8 14a2 2 0 1 1 .001-4.001A2 2 0 0 1 16 22zm2 4a2 2 0 1 1-4.001-.001A2 2 0 0 1 18 26zm-2-10a2 2 0 1 1 .001-4.001A2 2 0 0 1 16 16zm-6-4a2 2 0 1 1-.001 4.001A2 2 0 0 1 10 12zm0 6a2 2 0 1 1-.001 4.001A2 2 0 0 1 10 18zm0 6a2 2 0 1 1-.001 4.001A2 2 0 0 1 10 24z"></path>
+        </svg><span>Calculate Repayments</span></button>      
+
+      </div>           
+       
+
+      <div class="results-section">
+
+        <div class="result-head">
+          <h1>
+            Your Results
+          </h1>
+  
+          <p>
+            Your results are shown below based on the information you
+          provided. To adjust the results, edit the form and click “calculate
+          repayments” again.
+          </p>
+          
+        </div>
+
+
+        <div class="result">
+          <div class="result-amount">
+            <span>
+              Your monthly repayments
+            </span>
+            <p id="total-amount">
+              £1797.74
+            </p>
+          </div>
+
+          <div class="result-balance">
+            <span>
+              Total you'll repay over the term
+            </span>
+            <p id="balance">
+              £539,322.94
+            </p>
+          </div>
+
+        </div>
+              
+        
+      </div>
+      
+    </main>
+
+    <div class="attribution">
+      Challenge by
+      <a href="https://www.frontendmentor.io?ref=challenge">Frontend Mentor</a>.
+      Coded by <a href="#">Martins Akinnuwesi</a>.
+    </div>
+  </body>
+</html>
