@@ -37,6 +37,10 @@ main {
   cursor: pointer;
 }
 
+.clear-btn:hover {
+  color: hsl(200, 26%, 54%);
+}
+
 /* Input Form */
 
 .form-group {
